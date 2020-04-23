@@ -25,15 +25,13 @@ const (
 	namingTypeFolder = "folder_only"
 	namingTypeAll    = "file_and_folder"
 
-	formulaIncrement = "{increment}"
-	formulaCurrent   = "{current}"
-	formulaSlash     = "{slash}"
-
+	formulaIncrement          = "{increment}"
+	formulaCurrent            = "{current}"
 	defaultIncrement          = 1
 	defaultFormattedIncrement = 4
 )
 
-var formulas = []string{formulaIncrement, formulaCurrent, formulaSlash}
+var formulas = []string{formulaIncrement, formulaCurrent}
 
 func main() {
 	fmt.Println("Naming your files & folders quickly\n")
@@ -270,9 +268,6 @@ func readFormula(in, currentName string, index, formattedIncrement int) string {
 	}
 	if strings.Contains(in, formulaCurrent) {
 		in = strings.ReplaceAll(in, formulaCurrent, currentName)
-	}
-	if strings.Contains(in, formulaSlash) {
-		in = strings.ReplaceAll(in, formulaSlash, "/")
 	}
 	return in
 }
