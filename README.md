@@ -18,6 +18,10 @@
   * -path string
     * [optional] read path (default "./").
 
+## Release
+
+Get [latest version](https://github.com/isdzulqor/naming/releases)
+
 ## Contribution
 
 Contributions are welcome! If you find any improvement or issue you want to fix, feel free to send a pull request 😊
