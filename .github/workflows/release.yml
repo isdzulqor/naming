@@ -2,7 +2,8 @@ name: Release
 
 on:
   push:
-    branches: [master]
+    tags:
+      - "v*"
 
 jobs:
   release:
@@ -31,16 +32,16 @@ jobs:
         id: create_release
         uses: actions/create-release@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-      - name: Upload Release Assets 
+      - name: Upload Release Assets
         uses: glentiki/xbin-release-action@v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           assets_path: ./build
