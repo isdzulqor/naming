@@ -56,6 +56,7 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Printf("Successfully rollback %d items for %s", increment-1, namingType)
+		os.Exit(0)
 		return
 	}
 
@@ -65,6 +66,7 @@ func main() {
 	}
 
 	fmt.Printf("Successfully naming %d items for %s", increment-1, namingType)
+	os.Exit(0)
 }
 
 func exec(formula, path string, increment int, namingType string, ignoreList []string, isSkipError bool, formattedIncrement int) (int, error) {
